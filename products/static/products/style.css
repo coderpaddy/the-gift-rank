@@ -1,0 +1,153 @@
+.redback {
+    background-color: #aa3939;
+}
+
+.navbar-custom {
+    background-color: #aa3939;
+}
+
+/* change the brand and text color */
+
+.navbar-custom .navbar-brand, .navbar-custom .navbar-text {
+    color: white;
+}
+
+/* change the link color */
+
+.navbar-custom .navbar-nav .nav-link {
+    color: white
+}
+
+/* change the color of active or hove#aa3939 links */
+
+.navbar-custom .nav-item.active .nav-link, .navbar-custom .nav-item:hover .nav-link {
+    color: #aa3939;
+    background-color: white;
+}
+
+.navbar-brand img {
+    height: 150px;
+    width: auto;
+}
+
+.nav-item a {
+    font-size: 1.6em;
+    margin: 0px 10px 0px 10px;
+}
+
+.sitenav {
+    background-color: #aa3939;
+    color: white;
+}
+
+.sitenav a {
+    color: white;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+.sitenav a:hover {
+    color: #aa3939;
+    background-color: white;
+}
+
+.logo {
+    height: 100px;
+    width: auto;
+}
+
+.productimages {
+    height: 200px;
+    width: 100%;
+}
+
+
+.btn-outline-secondary {
+    background-color: white;
+    color: #013c3c;
+}
+
+.btn-secondary {
+    background-color: #013c3c;
+    border-color: #841616;
+    color: white;
+}
+
+
+.allItems {
+    padding-top: 10px;
+}
+
+.tgrBorder {
+    border-right: 6px solid #aa3939;
+    border-bottom: 6px solid #aa3939;
+    border-top: 1px solid #aa3939;
+    border-left: 1px solid #aa3939;
+    border-radius: 20px;
+    margin-bottom: 5px;
+}
+
+.card-header {
+    padding: .75rem 1.25rem;
+    color: white;
+    background-color: #3f8080;
+}
+
+i.fas {
+    color: #d66969;
+}
+
+.imgdiv {
+    width:100px;
+    height:100px;
+    overflow:hidden;
+    border: #aa3939;
+}
+
+.imgimg {
+    width:100px;
+    height:auto;
+}
+.card {
+    width: 100%;
+    margin: 10px 0px 0px 0px;
+}
+
+.sidetext {
+    margin-bottom: -10px;
+}
+
+.badge-primary {
+    background-color: #aa3939;
+}
+
+.fullme {
+    width: 100%;
+}
+
+.card-header p {
+    margin-top: -5px;
+    margin-bottom: -5px;
+}
+
+.list-group {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.list-group-item a {
+    color: black;
+}
+
+.coverback {
+    background-color: #ffe6e6;
+}
+
+.coverback .container {
+    padding-bottom: 10px;
+}
+
+.navbar-toggler-icon {
+    color: white;
+}

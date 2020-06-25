@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block content %}
+{% if product %}
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <!-- Area for product Image-->
+            <img src="{{ product.img_thumb }}" alt="{{ product.short_name }}" class="rounded" height="250" width="250">
+        </div>
+        <div class="col-6">
+            <!-- Area for product Details-->
+            <h2>{{ product.name|truncatewords:10 }}</h2>
+            <p>{{ product.description }}</p>
+            <div class="row">
+                <div class="col-6">
+                    <p>Rating: {{ product.rating }} / 5</p>
+                    <p>Product Views: {{ product.pageviews }}</p>
+                </div>
+                <div class="col-6">
+                    <p><i class="fas fa-heart fa-3x"></i> {{ product.likes }} <i class="fas fa-heart-broken fa-3x"></i> {{ product.dislikes }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <p>{{ product.mycategory|capfirst }}</p>
+                </div>
+                <div class="col-3">
+                    <p>{{ product.realcategory|capfirst }}</p>
+                </div>
+                <div class="col-3">
+                    <p>{{ product.subcategory|capfirst }}</p>
+                </div>
+                <div class="col-3">
+                    <p>Date Added: {{ product.date|date:"D d M Y" }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!-- Area for product prices-->
+        {% if pricelinks %}
+        <ul>
+            {% for link in pricelinks %}
+            <li>{{ link.store }} : {{ link.price }} : {{ link.url }}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>Product Has No Links Yet</p>
+        {% endif %}
+    </div>
+    <div class="row">
+        <!-- Are for Related Products-->
+        <div class="card-deck" id="products">
+            {% if all_products %}
+            {% for product in relatedproducts %}
+            <div class="card">
+                <div class="card-header myCapital">
+                    #{{ product.rank }} in {{ product.mycategory }}
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-12">
+                            <img src="{{ product.img_thumb }}" class="card-imgtg" alt="{{ product.short_name }}">
+                        </div>
+                        <div class="col-md-9 col-sm-12">
+                            <h6 class="card-title">{{ product.short_name }}</h6>
+                            <p>Views: {{ product.pageviews }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <a href="{% url 'products:product' product.mycategory product.rank %}"
+                        class="btn btn-lg btn-block btn-secondary myCapital">See Prices</a>
+                    <a href="{% url 'products:category' product.mycategory %}"
+                        class="btn btn-lg btn-block btn-outline-secondary myCapital">All
+                        {{ product.mycategory }}'s</a>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted float-left">Updated on {{ product.date }}</small>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <p>No polls are available.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+{% else %}
+<p>Product Does Not Exist</p>
+{% endif %}
+{% endblock %}

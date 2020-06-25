@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="coverback curvedborder">
+    <div class="container">
+    <h1 class="text-danger maintitle">Need A Gift?</h1>
+    <p class="fullopac h5 text-black">We have collected the most gifted presents bought on the internet,
+        found the
+        cheapest
+        price, and then listed them all here.</p>
+    <p class="fullopac h5 text-black">Have a browse and find some inspiration for your next present.</p>
+    <div class="row buton">
+        <div class="col-md-6 col-sm-12">
+            <a href="#" class="btn btn-lg btn-block btn-secondary">Most Viewed</a>
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <a href="#" class="btn btn-lg btn-block btn-outline-secondary">Most Clicked</a>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<div class="topranked container-fluid">
+    <div class="bg-white container-fluid hhead curvedborder">
+        <h2 class="text-danger">Check out the most gifted items on the internet at the moment</h2>
+    </div>
+    <div class="card-deck" id="products">
+        {% if all_products %}
+        {% for product in all_products %}
+        <div class="card">
+            <div class="card-header myCapital">
+                #{{ product.rank }} in {{ product.mycategory }}
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 col-sm-12">
+                        <img src="{{ product.img_thumb }}" class="card-imgtg"
+                            alt="{{ product.short_name }}">
+                    </div>
+                    <div class="col-md-9 col-sm-12">
+                        <h6 class="card-title">{{ product.short_name }}</h6>
+                        <p>Views: {{ product.pageviews }}</p>
+                        <p><i class="fas fa-laugh fa-3x"></i> {{ product.likes }} <i class="fas fa-frown fa-3x"></i> {{ product.dislikes }}</p>
+                        <small class="text-muted">Updated on {{ product.date }}</small>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <a href="{% url 'products:product' product.mycategory product.rank %}"
+                    class="btn btn-lg btn-block btn-secondary myCapital">See Prices</a>
+                <a href="{% url 'products:category' product.mycategory %}"
+                    class="btn btn-block btn-outline-secondary myCapital">All 
+                    {{ product.mycategory|capfirst }} Products</a>
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <p>No polls are available.</p>
+        {% endif %}
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row no-gutters">
+    <div class="col-9">
+        {% if all_products %}
+        <div class="container-fluid">
+            {% for product in all_products %}
+            <div class="row">
+                <div class="card">
+                    <div class="card-header myCapital">
+                        <p class="float-left">#{{ product.rank }} in {{ product.mycategory }}</p>
+                        <p class="float-right">Tags: {{ product.realcategory }}, {{ product.subcategory }} </p>
+                    </div>
+                    <div class="card-body">
+                        <div class="row no-gutters">
+                            <div class="col-md-2 imgdiv">
+                                <img src="{{ product.img_thumb }}" class="card-img imgimg"
+                                    alt="{{ product.short_name }}">
+                            </div>
+                            <div class="col-md-10">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <h5 class="card-title">{{ product.short_name|upper }}</h5>
+                                        <p class="card-text">{{ product.short_description }}</p>
+                                        <p class="card-text"><small class="text-muted">Updated on {{ product.date }}</small>
+                                        </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="row text-center">
+                                            <div class="col-6">
+                                                <p><i class="fas fa-laugh fa-3x"></i> {{ product.likes }}</p>
+                                            </div>
+                                            <div class="col-6">
+                                                <p><i class="fas fa-frown fa-3x"></i> {{ product.dislikes }}</p>
+                                            </div>
+                                        </div>
+                                        <a href="{% url 'products:product' product.mycategory product.rank %}"
+                                            class="btn btn-block btn-secondary myCapital">See Prices</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+        {% else %}
+        <p>No polls are available.</p>
+        {% endif %}
+    </div>
+    <div class="col-3">
+        {% if subcategories %}
+        <ul class="list-group">
+
+            <li class="list-group-item">
+                <h3>Similiar Categories</h3>
+            </li>
+            {% for k, v in subcategories %}
+            <li class="list-group-item">
+                <a href="{% url 'products:category' k %}">
+                    <p class="sidetext">{{ k|capfirst }}: <span class="badge badge-primary badge-pill float-right">{{ v }}</span>
+                    </p>
+                </a>
+            </li>
+
+            {% endfor %}
+
+            {% else %}
+            <p>No similiar categories.</p>
+            {% endif %}
+        </ul>
+        {% if clickeditems %}
+        <div class="container">
+            <h3>Most Clicked Products</h3>
+            <p><small class="text-muted">On all of The Gift Rank <br></small></p>
+            {% for clickeditem in clickeditems %}
+            <div class="row">
+                <div class="col-4">
+                    <img src="{{ clickeditem.img_thumb }}" alt="" height="42" width="42">
+                </div>
+                <div class="col-8">
+                    <p><a
+                            href="{% url 'products:product' clickeditem.mycategory clickeditem.rank %}">{{ clickeditem.short_name }}</a>
+                    </p>
+
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <p>No similiar categories.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

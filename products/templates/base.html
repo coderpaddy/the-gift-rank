@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>The Gift Rank</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
+    {% load static %}
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="{% static 'products/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'products/cover.css' %}">
+    <script src="https://kit.fontawesome.com/8ab976f915.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid fullme">
+        <div class="container-fluid d-flex justify-content-center redback fullme">
+            <nav class="navbar navbar-custom navbar-expand-lg fullme">
+
+                <a class="navbar-brand" href="#">
+                    <img src="http://thegiftrank.com/css/logo.png" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../"><strong>Home</strong></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'products:category' 'electronics' %}"><strong>Electrical</strong></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'products:category' 'drugstore' %}"><strong>Health</strong></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'products:category' 'beauty' %}"><strong>Beauty</strong></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'products:category' 'kids' %}"><strong>Toys</strong></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'products:category' 'electronics' %}"><strong>Most Clicked</strong></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'products:category' 'electronics' %}"><strong>Most Viewed</strong></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        </header>
+        
+        <main role="main" class="container-fluid">
+            {% block content %}
+            {% endblock %}
+        </main>
+        
+
+        <footer class="myfoot container-fluid">
+            <div class="inner">
+                <p><a href="https://thegiftrank.com">The Gift Rank</a>, made by <a href="#">pkweb</a>.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

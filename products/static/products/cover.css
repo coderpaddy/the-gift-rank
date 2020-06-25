@@ -1,0 +1,94 @@
+.btn-danger {
+    color: white;
+    text-shadow: none;
+    background-color: #aa3939;
+    border: .05rem solid #fff;
+}
+
+.btn-danger:hover {
+    background-color: white;
+    color: #aa3939;
+}
+
+
+/*
+ * Cover
+ */
+
+.cover {
+    padding: 0 1.5rem;
+}
+
+.cover .coverback {
+    margin-top: 40px;
+    padding: 10px 10px 20px 10px;
+    background-color: white;
+}
+
+.cover .btn-lg {
+    padding: .75rem 1.25rem;
+    font-weight: 700;
+}
+
+
+
+.topranked {
+    margin-top: 20px;
+}
+.card-imgtg {
+    width: auto;
+    height: 100px;
+}
+
+/*
+ * Footer
+ */
+
+.myfoot {
+    color: rgba(255, 255, 255, .5);
+    background-color: #aa3939;
+}
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+.myCapital {
+    text-transform:capitalize;
+}
+
+.card-body {
+    margin: -10px 0px -10px 0px;
+}
+
+.curvedborder {
+    border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+}
+
+.hhead {
+    padding: 10px 0px 10px 0px;
+    margin-bottom: 10px;
+}
+.maintitle {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+main .h5 {
+    margin-bottom: 20px;
+}
+
+.buton {
+    margin-top: 50px;
+}
